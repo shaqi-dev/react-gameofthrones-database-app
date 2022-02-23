@@ -1,1 +1,3 @@
-"# React-GoT-DB-app" 
+# React-GoT-DB-app
+
+React practice project
