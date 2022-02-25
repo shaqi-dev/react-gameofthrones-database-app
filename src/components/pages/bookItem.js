@@ -5,14 +5,10 @@ import ItemDetails, {Field} from "../itemDetails";
 export default class BookItem extends Component {
     gotService = new gotService();
 
-	state = {
-		selectedBook: 2
-	}
-
     render() {
         return (
             <ItemDetails 
-			itemId={this.state.selectedBook}
+			itemId={this.props.bookId}
 			getData={this.gotService.getBook}>
 				<Field field='numberOfPages' label='Number of pages'/>
 				<Field field='publisher' label='Publisher'/>

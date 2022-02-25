@@ -5,7 +5,7 @@ import RandomChar from "../randomChar";
 import ErrorMessage from "../errorMessage";
 import { BookItem, BookPage, CharacterPage, HousePage } from "../pages";
 import gotService from '../../services/gotService'
-import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 
 export default class App extends Component {
 	gotService = new gotService();
@@ -52,20 +52,16 @@ export default class App extends Component {
 							onClick={this.toggleRandomChar}>
 							Toggle random character
 						</Button>
-						<CharacterPage/>
-						<HousePage/>
-						<BookPage/>
-						{/* <Routes>
-							<Route path='characters' element={<CharacterPage/>}>
+						<Route path='/' exact component={() => <h1>Welcome to GOT</h1>}/>
+						<Route path='/characters/' component={CharacterPage}/>
+						<Route path='/houses/' component={HousePage}/>
+						<Route path='/books/' exact component={BookPage}/>
+						<Route path='/books/:id' render={
+							({match}) => {
+								const {id} = match.params;
 							
-							</Route>
-							<Route path='houses' element={<HousePage/>}>
-
-							</Route>
-							<Route path='books' element={<BookPage/>}>
-								<Route path=':id'element={<BookItem/>}/>
-							</Route>
-						</Routes> */}
+							return <BookItem bookId={id}/>}
+						}/>
 
 					</Container>
 				</div>
