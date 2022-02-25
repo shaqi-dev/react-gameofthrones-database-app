@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useEffect, useState} from "react";
 import { Col, Row, Container, Button } from "reactstrap";
 import Header from "../header";
 import RandomChar from "../randomChar";
@@ -30,7 +30,7 @@ export default class App extends Component {
 	};
 
 	render() {
-		const char = this.state.showRandomChar ? <RandomChar /> : null;
+		const char = this.state.showRandomChar ? <RandomChar interval={15000}/> : null;
 
 		if (this.state.error) {
 			return <ErrorMessage />;
