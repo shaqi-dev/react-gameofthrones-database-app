@@ -21,7 +21,7 @@ export default class GotService {
 
     getBook = async (id) => {
         const book = await this.getResource(`/books/${id}`);
-        return this._transformCharacter(book);
+        return this._transformBook(book);
     }
 
     getAllCharacters = async () => {
@@ -41,7 +41,7 @@ export default class GotService {
 
     getHouse = async (id) => {
         const house = await this.getResource(`/houses/${id}`);
-        return this._transformCharacter(house);
+        return this._transformHouse(house);
     }
 
     isSet(data) {
